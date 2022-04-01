@@ -1,11 +1,36 @@
-<nav class="navbar navbar-expand-lg navbar-dark bg-dark"> <a class="navbar-brand" href="#">Providers</a>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-        <div class="navbar-nav">
-            <a class="nav-item nav-link" routerLink="/listProvider"
-                routerLinkActive="active">Liste</a>
-            <a class="nav-item nav-link" routerLink="/addProvider"
-                routerLinkActive="active">Ajouter</a>
-        </div>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+  <div class="container-fluid">
+    <span class="navbar-brand">SP</span>
+    <button class="navbar-toggler" type="button" aria-controls="navbarContent" [attr.aria-expanded]="!collapsed" aria-label="Toggle navigation" (click)="collapsed = !collapsed">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="navbar-collapse" [class.collapse]="collapsed" id="navbarContent">
+      <ul class="navbar-nav mr-auto">
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-expanded="false" (click)="showProvider=!showProvider">
+                Providers
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{show: showProvider === true}">
+                <a class="dropdown-item" routerLink="/listProvider">Liste</a>
+                <a class="dropdown-item" routerLink="/addProvider">Ajouter</a>
+            </div>
+        </li>
+        <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown"
+                aria-expanded="false" (click)="showArticle=!showArticle">
+                Articles
+            </a>
+            <div class="dropdown-menu" aria-labelledby="navbarDropdown" [ngClass]="{show: showArticle === true}">
+                <a class="dropdown-item" routerLink="/listArticle">Liste</a>
+                <a class="dropdown-item" routerLink="/addArticle">Ajouter</a>
+            </div>
+        </li>
+    </ul>
     </div>
-</nav> <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
+  </div>
+</nav>
+
 <router-outlet></router-outlet>

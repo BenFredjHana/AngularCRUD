@@ -29,9 +29,9 @@ export class UpdateProviderComponent implements OnInit {
     this.providerToUpdate = this.service.getProvider(this.id).subscribe(
       response => {
         console.log(response);
-        /*this.name = response.name;
+        this.name = response["name"];
         this.email = response["email"];
-        this.adress = response["address"];*/
+        this.adress = response["address"];
       }
     );
 
@@ -47,9 +47,10 @@ export class UpdateProviderComponent implements OnInit {
     }
 
     this.service.updateProvider(this.providerToUpdate).subscribe(
-      response => {console.log(response); }
+      response => {
+        console.log(response);
+        this.router.navigate(['listProvider']);
+      }
     );
-
-    this.router.navigate(['listProvider']);
   }
 }

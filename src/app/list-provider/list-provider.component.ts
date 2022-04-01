@@ -13,7 +13,10 @@ export class ListProviderComponent implements OnInit {
   constructor(private service: ProviderService, private router: Router) { }
 
   ngOnInit() {
-    this.service.listProviders().subscribe(response => { this.providers = response; });
+    this.service.listProviders().subscribe(response => {
+      console.log(response);
+      this.providers = response;
+    });
   }
 
   deleteProvider(myObj: any) {

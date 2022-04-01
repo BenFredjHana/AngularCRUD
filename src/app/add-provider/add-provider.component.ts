@@ -20,9 +20,9 @@ export class AddProviderComponent implements OnInit {
     this.service.createProvider(myform).subscribe(
       response => {
         console.log(response);
+        this.router.navigate(['listProvider']);
       }
     );
-    this.router.navigate(['listProvider']);
   }
 
 }
